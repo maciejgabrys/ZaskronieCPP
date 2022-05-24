@@ -1,0 +1,43 @@
+// Example program written in ZaskronieC++
+
+FUNC InOut IS
+	PRINT "What's your name?\n"
+	VAR name
+	READ name
+	IF name EQ "Maciej" THEN
+		PRINT "Oh, that's me...\n"
+	ELSE
+		PRINT ("Hello " & name & "!\n")
+	END
+
+FUNC GetLegalAge IS
+	RETURN 18
+
+FUNC YearsToAdulthood IS
+	VAR diff
+	SET diff TO CALL GetLegalAge - $1
+	RETURN diff
+
+FUNC Calc IS
+	PRINT "How old are you?\n"
+	VAR age
+	READ age
+	IF age LT CALL GetLegalAge THEN
+		VAR remaining
+		SET remaining TO CALL YearsToAdulthood(age)
+		PRINT ("You'll become an adult in " & remaining & " years.\n")
+	ELSE
+		PRINT "You're an adult.\n"
+	END
+
+FUNC CountToZero IS
+	PRINT ($1 & "\n")
+	IF $1 NE 0 THEN
+		GOTO CountToZero($1 - 1)
+	END
+
+FUNC Main IS
+	GOTO InOut
+	GOTO Calc
+	PRINT "Counting to zero...\n"
+	GOTO CountToZero(10)
