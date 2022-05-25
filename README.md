@@ -1,2 +1,2 @@
 # ZaskronieC++
- A Python-like language composed of C++ preprocessor macros.
+ A BASIC-like language composed of C++ preprocessor macros.

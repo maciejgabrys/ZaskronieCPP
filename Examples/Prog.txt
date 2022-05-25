@@ -8,15 +8,18 @@ FUNC InOut IS
 		PRINT "Oh, that's me...\n"
 	ELSE
 		PRINT ("Hello " & name & "!\n")
-	END
+	ENDIF
+END
 
 FUNC GetLegalAge IS
 	RETURN 18
+END
 
 FUNC YearsToAdulthood IS
 	VAR diff
 	SET diff TO CALL GetLegalAge - $1
 	RETURN diff
+END
 
 FUNC Calc IS
 	PRINT "How old are you?\n"
@@ -28,16 +31,19 @@ FUNC Calc IS
 		PRINT ("You'll become an adult in " & remaining & " years.\n")
 	ELSE
 		PRINT "You're an adult.\n"
-	END
+	ENDIF
+END
 
 FUNC CountToZero IS
 	PRINT ($1 & "\n")
 	IF $1 NE 0 THEN
 		GOTO CountToZero($1 - 1)
-	END
+	ENDIF
+END
 
-FUNC Main IS
+FUNC Prog IS
 	GOTO InOut
 	GOTO Calc
 	PRINT "Counting to zero...\n"
 	GOTO CountToZero(10)
+END

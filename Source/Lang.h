@@ -4,9 +4,6 @@
 #include <sstream>
 #include <iostream>
 
-#define _LANG_PROLOG _LANG_V _LANG_UNUSED() {
-#define _LANG_EPILOG ; return _LANG_V(); }
-
 class _LANG_V {
 private:
 	double num;
@@ -142,7 +139,7 @@ public:
 
 } _LANG_F_CALLER;
 
-#define FUNC ; return _LANG_V_BLANK; } _LANG_V
+#define FUNC ; _LANG_V
 #define IS (_LANG_V $1 = _LANG_V_BLANK,\
 			_LANG_V $2 = _LANG_V_BLANK,\
 			_LANG_V $3 = _LANG_V_BLANK,\
@@ -160,6 +157,7 @@ public:
 			_LANG_V $15 = _LANG_V_BLANK,\
 			_LANG_V $16 = _LANG_V_BLANK) {
 #define RETURN ; return
+#define END ; return _LANG_V_BLANK; }
 
 #define VAR ; _LANG_V
 #define SET ;
@@ -171,7 +169,7 @@ public:
 #define THEN ) {
 #define ELIF ; } else if (
 #define ELSE ; } else {
-#define END ; }
+#define ENDIF ; }
 
 #define EQ ==
 #define NE !=
